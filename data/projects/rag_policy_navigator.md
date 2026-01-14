@@ -80,7 +80,7 @@ Results showed that:
 * Backend: Python
 * Framework: LangChain-style RAG pipeline
 * Vector Store: FAISS
-* Embeddings: Sentence Transformers / OpenAI embeddings
+* Embeddings: Sentence Transformers
 * LLMs: OpenAI models
 
 ---
@@ -92,14 +92,3 @@ Results showed that:
 * Reinforced best practices for **hallucination prevention** in generative AI systems
 
 ---
-
-## Recommended Metadata for Indexing
-
-```json
-{
-  "source": "project",
-  "project_name": "Policy Navigator",
-  "domain": "public_policy",
-  "framework": "CDC Policy Analytical Framework"
-}
-```
