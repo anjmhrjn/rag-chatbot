@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request, HTTPException
+from fastapi import APIRouter, Depends, Request, HTTPException
 from openai import OpenAI
 from collections import defaultdict
 from time import time
@@ -8,6 +8,7 @@ from app.rag.vectorstore import FAISSStore
 from app.core.prompts import SYSTEM_PROMPT
 from app.utils.openai import call_openai
 from app.models.chat import ChatRequest, ChatResponse
+from app.security import verify_service_key
 
 router = APIRouter()
 client = OpenAI()
@@ -35,7 +36,7 @@ def is_about_me(query: str) -> bool:
     return any(k in q for k in ALLOWED_KEYWORDS)
 
 @router.post("/chat", response_model=ChatResponse)
-def chat(request: Request, req: ChatRequest):
+def chat(request: Request, req: ChatRequest, _: None = Depends(verify_service_key)):
     ip = request.client.host
     now = time()
     REQUESTS[ip] = [t for t in REQUESTS[ip] if now - t < WINDOW]
@@ -74,7 +75,7 @@ def chat(request: Request, req: ChatRequest):
         {"role": "user", "content": f"Context:\n{context_text}\n\nQuestion: {query}"}
     ]
     answer = call_openai(client, messages)
-    # answer = "Test answer"
+    # answer = "Test answer Test answer Test answer Test answer Test answer Test answer Test answer Test answer "
 
     chat_cache[normalized_query] = answer
 
