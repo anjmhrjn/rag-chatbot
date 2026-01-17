@@ -15,10 +15,6 @@ Thumbs.db
 .vscode/
 .idea/
 
-# FAISS / Index artifacts
-index/*.index
-index/*.pkl
-
 # Logs
 *.log
 
