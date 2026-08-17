@@ -2,7 +2,7 @@
 ## Learning Management System (LMS)
 
 **Role:** Software Engineer
-**Organization:** DigiTechnology Nepal
+**Organization:** DigiTechnology
 
 ### Problem
 

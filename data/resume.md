@@ -26,7 +26,7 @@ Software Engineer and certified Data Engineer with 3+ years of experience buildi
 
 ## EXPERIENCE
 
-**Software Engineer | DigiTechnology Nepal** — Aug 2022 – July 2024
+**Software Engineer | DigiTechnology** — Aug 2022 – July 2024
 
 - Architected core backend services supporting **1,000+ concurrent users**, designing for fault tolerance and data integrity across mission-critical operations.
 - Built the reporting and visualization layer of a learning management system, replacing a third-party reporting tool and saving **$1,500 in annual licensing fees**.
