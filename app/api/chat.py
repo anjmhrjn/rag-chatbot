@@ -23,12 +23,13 @@ retriever = Retriever(store)
 
 chat_cache: dict[str, str] = {}
 
+# Stems, not whole words: "certs" and "certificates" must pass the gate too.
 ALLOWED_KEYWORDS = {
-    "project", "experience", "certification", "aws",
-    "lms", "rag", "policy", "navigator", "resume", "skills",
+    "proj", "experience", "cert", "aws", "databricks", "lakehouse",
+    "lms", "rag", "policy", "navigator", "resume", "skill", "tech",
     "education", "degree", "background", "work", "history",
-    "chatbot", "anuj", "maharjan", "technical", "proficiencies",
-    "portfolio"
+    "chatbot", "anuj", "maharjan", "proficienc", "portfolio",
+    "built", "build", "made", "know", "you"
 }
 
 def is_about_me(query: str) -> bool:
@@ -65,10 +66,14 @@ def chat(request: Request, req: ChatRequest, _: None = Depends(verify_service_ke
             "answer": "I don't have information about that."
         }
     
-    MAX_CHUNKS = 3
-    MAX_CHARS = 800
+    # Chunks run to ~2100 chars, so the old 800-char cap silently dropped more
+    # than half of every chunk it passed along.
+    MAX_CHUNKS = 10
+    MAX_CHARS = 3000
 
-    context_text = "\n".join([c["text"][:MAX_CHARS] for c in contexts[:MAX_CHUNKS]])
+    context_text = "\n\n---\n\n".join(
+        [c["text"][:MAX_CHARS] for c in contexts[:MAX_CHUNKS]]
+    )
 
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
