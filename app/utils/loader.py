@@ -43,6 +43,13 @@ def infer_metadata(file_path: str) -> dict:
             "system": "Retrieval Augmented Generation"
         })
 
+    # Databricks project
+    if "databricks" in file_name.lower():
+        metadata.update({
+            "domain": "data_engineering",
+            "system": "databricks"
+        })
+
     return metadata
 
 def load_documents(data_dir: str) -> list:

@@ -22,6 +22,9 @@ class Retriever:
         if "certification" in q or "aws" in q:
             return {"source": "certification"}
 
+        if "databricks" in q:
+            return {"system": "databricks"}
+
         return {}
 
     def retrieve(self, query: str):

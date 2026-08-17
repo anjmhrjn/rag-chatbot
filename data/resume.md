@@ -1,99 +1,61 @@
 # Anuj Maharjan
 
-**Software Engineer | AWS Certified Developer – Associate | AWS Certified Machine Learning Engineer – Associate**
-Toledo, OH
-📞 419-494-7550
-✉️ [anjmhrjn1@gmail.com](mailto:anjmhrjn1@gmail.com)
+Cleveland, OH | 419.494.7550 | [anjmhrjn1@gmail.com](mailto:anjmhrjn1@gmail.com) | [maharjananuj.com.np](https://maharjananuj.com.np) | [linkedin](https://linkedin.com/in/anuj-maharjan-33b78a326) | [github](https://github.com/anjmhrjn)
 
----
+**Software Engineer | Data Engineer | AWS & Databricks Certified**
 
-## Summary
+## SUMMARY
 
-Software Engineer with 2+ years of experience in scalable web development using **React.js, Node.js, and Python**. Strong background in **API design, SQL-based data analysis, and full‑stack development**, with hands-on experience applying **machine learning and generative AI concepts** to real-world systems. AWS Certified Developer and Machine Learning Engineer.
+Software Engineer and certified Data Engineer with 3+ years of experience building scalable backend systems, Spark-based lakehouse pipelines on Databricks, and production-grade AI workflows. Proficient in Python, SQL, and cloud-native architecture, with hands-on work in dimensional modeling, medallion pipeline design, and LLM orchestration. Recently completed an MSc in Computer Science (AI) at the University of Toledo, combining applied ML research with a strong foundation in distributed systems and software engineering.
 
----
+## SKILLS
 
-## Experience
+**Languages & Frameworks:** Python, Java, JavaScript, TypeScript, SQL (PostgreSQL, MySQL), NoSQL (MongoDB, DynamoDB), Node.js, React, Next.js, FastAPI, Django Rest Framework
 
-### Software Engineer — DigiTechnology Nepal
+**Data Engineering:** Apache Spark (PySpark, Spark SQL), Databricks (Unity Catalog, Workflows, Asset Bundles, Auto Loader), Delta Lake, medallion architecture, dimensional modeling, ETL/ingestion pipelines, query optimization
 
-*August 2022 – July 2024*
+**AI/ML:** LangChain, PyTorch, Pandas, Numpy, Scikit-learn, TensorFlow, OpenAI, Claude Code, LLM Fine-Tuning, Retrieval-Augmented Generation, VectorDB
 
-* Led development of a **Learning Management System (LMS)**, optimizing the database to support **1,000+ concurrent users** during online exams.
-* Built a **real-time business dashboard** using React.js and Node.js, integrating complex SQL queries for analytics.
-* Developed and optimized **secure REST APIs** for authentication, user management, and data processing, improving response efficiency by **~40%**.
-* Improved backend performance through query optimization and caching, reducing API response times by **~40%**.
+**Infrastructure & Cloud:** AWS (EC2, Lambda, S3, SageMaker, IAM), Docker, Kubernetes, CI/CD, Git
 
----
+## EDUCATION
 
-### Software Developer — Kaii Group
+**The University of Toledo**, MSc. Computer Science (concentration in AI) — Toledo, OH (2024 – 2026)
 
-*August 2021 – July 2022*
+**Softwarica College of IT and E-Commerce**, BSc. (Hons) in Computing — Kathmandu, Nepal (2019 – 2022)
 
-* Developed backend services and APIs using **Django Rest Framework** for web and mobile applications.
-* Contributed to a **data processing pipeline** that automated large-scale data ingestion, improving efficiency by **~30%**.
-* Assisted in developing **CRM software** with secure authentication and role-based access control.
-* Performed extensive testing and debugging, reducing system downtime by identifying and fixing performance bottlenecks.
+## EXPERIENCE
 
----
+**Software Engineer | DigiTechnology Nepal** — Aug 2022 – July 2024
 
-## Education
+- Architected core backend services supporting **1,000+ concurrent users**, designing for fault tolerance and data integrity across mission-critical operations.
+- Built the reporting and visualization layer of a learning management system, replacing a third-party reporting tool and saving **$1,500 in annual licensing fees**.
+- Developed an in-house **drag-and-drop document builder** using React, Node.js, and NoSQL, cutting document generation time by **50%** and eliminating external SaaS dependencies.
+- Optimized RESTful API and CI/CD workflows in collaboration with cross-functional stakeholders, improving deployment reliability and reducing system response times by **40%**.
 
-### The University of Toledo
+**Software Developer | Kaii Group** — Aug 2021 – July 2022
 
-**MSc. Computer Science (AI Concentration)** — Toledo, OH
-*2024 – May 2026 (Expected)*
+- Engineered a structured **automated data ingestion pipeline** to extract, normalize, and load domain data, improving workflow efficiency by **30%** and eliminating manual intervention across the data lifecycle.
+- Built backend services with **Django Rest Framework** and implemented an **automated regression test suite**, reducing production-level bugs by **25%** through systematic coverage of critical code paths.
+- Diagnosed and resolved database performance bottlenecks through query analysis and schema optimization, improving PostgreSQL response times by **35%**.
+- Delivered secure **CRM software** with role-based access control and token-based session management.
 
-### Softwarica College of IT and E‑Commerce
+## PROJECTS
 
-**BSc. (Hons) in Computing** — Kathmandu, Nepal
-*2019 – 2022*
+**Medallion Lakehouse Pipeline on Databricks** | [github.com/anjmhrjn/dabs-taxi](https://github.com/anjmhrjn/dabs-taxi)
 
----
+- Built a bronze/silver/gold lakehouse as a **five-task Databricks Workflow DAG**, enforcing validity rules at silver and modeling gold as a **Delta Lake star schema** with surrogate keys and foreign key constraints.
+- Packaged it as a **Databricks Asset Bundle** whose dev and prod targets derive every schema, volume, and trigger from one variable, with **Unity Catalog** governance and incremental **Auto Loader** ingestion.
 
-## Certifications
+**Agent-Orchestrated Adaptive RAG** | [github.com/anjmhrjn/agentic-rag](https://github.com/anjmhrjn/agentic-rag)
 
-* **AWS Certified Developer – Associate** (March 2025 – March 2028)
-* **AWS Certified Machine Learning Engineer – Associate** (August 2025 – August 2028)
+- Built multi-agent **LangChain** system that classifies query intent and routes requests to domain-specific vector namespaces, replacing flat single-index retrieval and improving answer precision across complex technical knowledge bases.
+- Implemented **Self-RAG** evaluation loops that score retrieval quality and flag stale context before generation, cutting the manual review needed to trust output in production-facing AI workflows.
 
----
+## CERTIFICATIONS
 
-## Projects
+**Databricks Certified Data Engineer Associate** | Databricks — (August 2026)
 
-* **AI-Powered Personal Portfolio Chatbot**
-  Built a RAG-based chatbot to answer user queries about my background, skills, and projects using vector search and LLMs.
+**AWS Certified Machine Learning Engineer – Associate** | Amazon Web Services — (August 2025)
 
-* **Document Uploader with Automated Text Extraction**
-  Developed a document ingestion system with automated text extraction and database indexing for fast document search and retrieval.
-
----
-
-## Skills
-
-**Frontend**
-
-* React.js, Next.js, HTML, CSS, JavaScript, TypeScript
-
-**Backend**
-
-* Node.js, Django, Django Rest Framework
-
-**Programming Languages**
-
-* Python, Java, C, C++, JavaScript
-
-**Cloud & DevOps**
-
-* AWS (S3, Lambda, EC2, DynamoDB, IAM), Docker, CI/CD
-
-**Databases**
-
-* MongoDB, MySQL, PostgreSQL
-
-**AI / ML**
-
-* Prompt Engineering, LLM Fine-Tuning, Generative AI, Retrieval-Augmented Generation (RAG)
-
-**Other**
-
-* Data Structures & Algorithms, GitHub, GitLab, Web Security, Authentication & Authorization
+**AWS Certified Developer – Associate** | Amazon Web Services — (March 2025)
