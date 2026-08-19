@@ -48,9 +48,8 @@ Software Engineer and certified Data Engineer with 3+ years of experience buildi
 - Packaged it as a **Databricks Asset Bundle** whose dev and prod targets derive every schema, volume, and trigger from one variable, with **Unity Catalog** governance and incremental **Auto Loader** ingestion.
 
 **Agent-Orchestrated Adaptive RAG** | [github.com/anjmhrjn/agentic-rag](https://github.com/anjmhrjn/agentic-rag)
-
-- Built multi-agent **LangChain** system that classifies query intent and routes requests to domain-specific vector namespaces, replacing flat single-index retrieval and improving answer precision across complex technical knowledge bases.
-- Implemented **Self-RAG** evaluation loops that score retrieval quality and flag stale context before generation, cutting the manual review needed to trust output in production-facing AI workflows.
+- Built a fully-local agentic RAG system in which an orchestrator routes each query across five retrieval strategies, coordinating query-classifier, decomposer, and answer-evaluator agents with a bounded two-retry reflection loop.
+- Ran a dual-dataset ablation showing decomposition lifts MRR **0.56→0.72** on structured retrieval but collapses it to 0.10 on multi-hop, and that reflection costs up to 6× latency for no reliable quality gain
 
 ## CERTIFICATIONS
 

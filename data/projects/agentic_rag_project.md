@@ -1,48 +1,64 @@
 ## Agent-Orchestrated Adaptive RAG
 
+**Repository:** [github.com/anjmhrjn/agentic-rag](https://github.com/anjmhrjn/agentic-rag)
+
 ### Objective
 
-Move beyond flat single-index retrieval by building a multi-agent RAG system that understands query intent, routes to the right knowledge domain, and validates its own retrieval quality before generating an answer.
+Build a fully-local agentic RAG system that adapts its retrieval approach to each query, then measure empirically whether the added agentic machinery actually earns its cost.
 
 ### Problem
 
-Traditional RAG systems retrieve from one flat vector index regardless of what is being asked. Across complex, multi-domain technical knowledge bases this produces topically-adjacent but incorrect context, and there is no mechanism to detect when retrieved context is stale or insufficient — the model answers confidently either way.
+Standard RAG applies one fixed retrieval strategy to every question, regardless of whether the query is a simple lookup or a complex multi-part question. Agentic patterns such as query decomposition and self-reflection are widely assumed to fix this, but their benefits are rarely measured against the latency and complexity they introduce.
 
 ### System Architecture
+
+An orchestrator routes each query across **five retrieval strategies**, coordinating specialized agents at each stage.
 
 ```
 User Query
    ↓
-Intent Classification Agent
+Query Classifier Agent  (intent + complexity)
    ↓
-Routing → Domain-Specific Vector Namespace
+Orchestrator → routes across five retrieval strategies
    ↓
-Retrieval
+Query Decomposer Agent  (multi-part queries)
    ↓
-Self-RAG Evaluation Loop (score relevance, flag stale context)
+Retrieval + Answer Generation
    ↓
-Context Injection → LLM Response
+Answer Evaluator Agent
+   ↓  (bounded two-retry reflection loop)
+Final Answer
 ```
 
 ### Key Features
 
-* **Multi-agent LangChain orchestration** — specialized agents handle classification, routing, retrieval, and evaluation as distinct steps.
-* **Intent-based namespace routing** — queries are directed to domain-specific vector namespaces instead of a single shared index, sharply improving answer precision.
-* **Self-RAG evaluation loops** — retrieval quality is scored before generation, and stale or weak context is flagged rather than silently used.
-* **Adaptive retrieval strategy** — the pipeline adjusts its retrieval path based on classified query intent rather than applying one fixed strategy to every question.
+* **Orchestrated multi-strategy routing** — a single orchestrator selects among five retrieval strategies per query instead of applying one fixed pipeline to everything.
+* **Specialized agent roles** — query-classifier, query-decomposer, and answer-evaluator agents each own one stage of the pipeline.
+* **Bounded two-retry reflection loop** — the answer evaluator can trigger a retry, capped at two attempts so self-correction cannot loop indefinitely or run away with latency.
+* **Fully local execution** — the entire pipeline runs on local models with no external API dependencies, keeping cost and data exposure at zero.
+* **Dual-dataset ablation harness** — the system is instrumented to compare baseline, decomposition, and full-agentic configurations on the same queries.
+
+### Evaluation
+
+Ran a **dual-dataset ablation** across structured-retrieval and multi-hop question sets, isolating the contribution of each agentic component:
+
+| Component | Structured retrieval | Multi-hop |
+|---|---|---|
+| Query decomposition (MRR) | **0.56 → 0.72** | collapses to **0.10** |
+| Reflection loop | up to **6× latency**, no reliable quality gain | same |
 
 ### Technologies Used
 
 * Backend: Python
-* Orchestration: LangChain (multi-agent)
-* Vector Store: namespaced vector database
-* Embeddings: Sentence Transformers / OpenAI embeddings
-* LLMs: OpenAI models
+* Architecture: multi-agent orchestration (classifier, decomposer, evaluator)
+* Vector Store: local vector index
+* Embeddings: local sentence embedding model
+* LLM: locally-hosted model (no external API calls)
 
 ### Outcome
 
-* Improved answer precision across complex technical knowledge bases compared to flat single-index retrieval.
-* Reduced manual review effort needed to trust output in production-facing AI workflows, by surfacing low-quality retrieval automatically.
-* Demonstrated agentic RAG patterns — routing, self-evaluation, and adaptive retrieval — beyond basic document Q&A.
+* Demonstrated that **query decomposition is workload-dependent, not universally beneficial** — it materially improves ranking on structured retrieval while actively degrading multi-hop performance.
+* Showed that the **reflection loop was not worth its cost**, adding up to 6× latency without a reliable quality improvement.
+* Produced a measured, evidence-backed view of agentic RAG rather than assuming the pattern helps — the kind of ablation that determines whether such a system should ship at all.
 
 ---
